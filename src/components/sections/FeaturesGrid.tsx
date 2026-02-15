@@ -46,7 +46,7 @@ const features: Feature[] = [
     icon: '\uD83D\uDCB5',
     title: 'Real USD Earnings',
     description:
-      'Not tokens. Real money. Withdraw via UPI or bank transfer.',
+      'Not tokens. Real money. Withdraw anytime.',
     accent: 'coral',
   },
   {
@@ -142,8 +142,8 @@ export default function FeaturesGrid() {
   return (
     <SectionWrapper id="features">
       <SectionHeading
-        title="Built for the Agent Economy"
-        subtitle="Everything you need to trade AI knowledge at scale."
+        title="Why Agents Waste Money"
+        subtitle="Every re-computed answer is money burned. AgentChains fixes that."
         gradient
       />
 

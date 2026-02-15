@@ -15,7 +15,7 @@ interface BetaFormData {
   name: string
   platform: string
   useCase: string
-  suggestions: string
+  portfolio: string
 }
 
 interface FormErrors {
@@ -42,10 +42,10 @@ const platforms = [
 ] as const
 
 const benefits = [
-  'Works with every major AI platform',
-  'Direct channel with the founding team',
-  'Shape the product roadmap with your feedback',
-  'Lifetime discount for early supporters',
+  'For developers and AI engineers only',
+  'Direct Slack channel with the founding team',
+  'Shape the product roadmap with your PRs',
+  'Lifetime discount for early builders',
 ] as const
 
 /* ------------------------------------------------------------------ */
@@ -99,7 +99,7 @@ export default function BetaAccessForm() {
     name: '',
     platform: '',
     useCase: '',
-    suggestions: '',
+    portfolio: '',
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitted, setSubmitted] = useState(false)
@@ -138,12 +138,12 @@ export default function BetaAccessForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: 'New AgentChains Beta Access Request',
+          subject: 'New AgentChains Developer Application',
           from_name: 'AgentChains Website',
           name: formData.name,
           platform: formData.platform,
           use_case: formData.useCase,
-          suggestions: formData.suggestions || '(none provided)',
+          portfolio: formData.portfolio || '(none provided)',
         }),
       })
 
@@ -200,7 +200,7 @@ export default function BetaAccessForm() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-cyan opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-cyan" />
                 </span>
-                Limited Beta
+                Developers Only
               </span>
             </motion.div>
 
@@ -209,7 +209,7 @@ export default function BetaAccessForm() {
               variants={fadeInUp}
               className="font-display text-h1 font-bold text-text-primary"
             >
-              Get Early Access
+              Build With Us
             </motion.h2>
 
             {/* Description */}
@@ -217,9 +217,9 @@ export default function BetaAccessForm() {
               variants={fadeInUp}
               className="text-lg text-text-secondary leading-relaxed max-w-lg"
             >
-              Tell us about your AI stack and how you&rsquo;d use AgentChains.
-              We&rsquo;ll reach out with onboarding details and priority access
-              to the beta.
+              We&rsquo;re looking for developers who want to build the future of
+              agent-to-agent commerce. Apply below &mdash; share your experience
+              and what you&rsquo;d build.
             </motion.p>
 
             {/* Benefits list */}
@@ -349,7 +349,7 @@ export default function BetaAccessForm() {
                         rows={3}
                         required
                         maxLength={500}
-                        placeholder="Describe how you'd use AgentChains..."
+                        placeholder="What would you build with AgentChains?"
                         value={formData.useCase}
                         onChange={handleChange('useCase')}
                         className={cn(
@@ -365,25 +365,25 @@ export default function BetaAccessForm() {
                       )}
                     </div>
 
-                    {/* Ideas & Suggestions */}
+                    {/* GitHub / Portfolio / Resume */}
                     <div>
                       <label
-                        htmlFor="beta-suggestions"
+                        htmlFor="beta-portfolio"
                         className="block text-sm font-medium text-text-secondary mb-1.5"
                       >
-                        Ideas &amp; Suggestions{' '}
+                        GitHub / Portfolio / Resume{' '}
                         <span className="text-text-muted text-xs">
                           (optional)
                         </span>
                       </label>
-                      <textarea
-                        id="beta-suggestions"
-                        rows={2}
+                      <input
+                        id="beta-portfolio"
+                        type="text"
                         maxLength={500}
-                        placeholder="Any features or improvements you'd like to see?"
-                        value={formData.suggestions}
-                        onChange={handleChange('suggestions')}
-                        className={cn(inputBase, 'resize-none')}
+                        placeholder="github.com/you or LinkedIn profile"
+                        value={formData.portfolio}
+                        onChange={handleChange('portfolio')}
+                        className={inputBase}
                       />
                     </div>
 
@@ -457,7 +457,7 @@ export default function BetaAccessForm() {
                           Submitting...
                         </span>
                       ) : (
-                        'Request Early Access'
+                        'Apply for Developer Access'
                       )}
                     </motion.button>
 
@@ -498,19 +498,15 @@ export default function BetaAccessForm() {
 
                     <div className="space-y-3">
                       <h3 className="font-display text-h3 text-text-primary">
-                        Welcome aboard, {formData.name.split(' ')[0]}!
+                        Application received, {formData.name.split(' ')[0]}!
                       </h3>
                       <p className="text-text-secondary leading-relaxed max-w-sm mx-auto">
-                        You&rsquo;re officially on the early access list.
-                        We&rsquo;re excited to have you.
-                      </p>
-                      <p className="text-sm text-text-muted leading-relaxed max-w-sm mx-auto">
-                        You&rsquo;ll receive a confirmation email from{' '}
+                        We review every application personally. If you&rsquo;re
+                        a fit, you&rsquo;ll hear from{' '}
                         <span className="text-accent-cyan font-medium">
                           info@agentchains.ai
                         </span>{' '}
-                        with your onboarding details and next steps.
-                        Check your inbox (and spam folder, just in case).
+                        within 48 hours with your developer credentials.
                       </p>
                     </div>
                   </motion.div>
