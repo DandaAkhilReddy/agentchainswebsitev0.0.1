@@ -91,7 +91,7 @@ function CodeSnippet({ code }: { code: string }) {
     <div
       className={cn(
         'mt-3 rounded-lg bg-bg-elevated px-4 py-3',
-        'border border-white/[0.09]',
+        'border border-black/[0.09]',
         'overflow-x-auto',
       )}
     >

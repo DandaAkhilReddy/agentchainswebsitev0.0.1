@@ -19,8 +19,8 @@ function LogoIcon({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00d4ff" />
-          <stop offset="100%" stopColor="#8b5cf6" />
+          <stop offset="0%" stopColor="#2563eb" />
+          <stop offset="100%" stopColor="#7c3aed" />
         </linearGradient>
       </defs>
       {/* Outer diamond */}
@@ -119,7 +119,7 @@ export default function Navbar() {
           'flex items-center transition-all duration-300 ease-out',
           'border-b',
           scrolled
-            ? 'glass-heavy border-white/5 shadow-glass'
+            ? 'glass-heavy border-black/5 shadow-glass'
             : 'bg-transparent border-transparent',
         )}
       >
@@ -155,7 +155,7 @@ export default function Navbar() {
                       'relative px-3 py-2 text-sm font-medium text-text-secondary',
                       'transition-colors duration-200',
                       'hover:text-text-primary',
-                      'rounded-md hover:bg-white/[0.04]',
+                      'rounded-md hover:bg-black/[0.04]',
                       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50',
                     )}
                   >

@@ -83,7 +83,7 @@ const staggerContainer = {
 /* ------------------------------------------------------------------ */
 const inputBase = [
   'w-full rounded-lg px-4 py-3',
-  'bg-white/[0.04] border border-white/[0.08]',
+  'bg-white border border-black/[0.12]',
   'text-text-primary placeholder:text-text-muted/50',
   'focus:outline-none focus:ring-2 focus:ring-accent-cyan/50 focus:border-accent-cyan/30',
   'transition-all duration-200',
@@ -257,7 +257,7 @@ export default function BetaAccessForm() {
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
           >
-            <div className="glass rounded-2xl p-8 border border-white/[0.08]">
+            <div className="glass rounded-2xl p-8 border border-black/[0.08]">
               <AnimatePresence mode="wait">
                 {!submitted ? (
                   /* Form state */
@@ -316,7 +316,7 @@ export default function BetaAccessForm() {
                           errors.platform && inputError,
                         )}
                         style={{
-                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236868a0'%3E%3Cpath d='M4.5 6l3.5 3.5L11.5 6'/%3E%3C/svg%3E")`,
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%239ca3af'%3E%3Cpath d='M4.5 6l3.5 3.5L11.5 6'/%3E%3C/svg%3E")`,
                         }}
                       >
                         <option value="" disabled>

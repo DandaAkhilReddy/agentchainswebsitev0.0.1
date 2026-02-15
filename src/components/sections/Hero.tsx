@@ -90,12 +90,7 @@ export default function Hero() {
       <GradientBlobs />
       <div className="absolute inset-0 bg-mesh" aria-hidden="true" />
       <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
+        className="absolute inset-0 bg-grid"
         aria-hidden="true"
       />
 
@@ -112,7 +107,7 @@ export default function Hero() {
             className={cn(
               'inline-flex items-center gap-2 rounded-full px-4 py-1.5',
               'glass text-xs font-mono tracking-wider text-text-secondary',
-              'border border-white/[0.08]',
+              'border border-black/[0.08]',
             )}
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-cyan animate-pulse" />

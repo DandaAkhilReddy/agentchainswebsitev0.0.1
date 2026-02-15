@@ -41,8 +41,8 @@ const variantClasses: Record<ButtonVariant, string> = {
   ].join(' '),
   secondary: [
     'glass text-text-primary font-medium',
-    'border border-white/10',
-    'hover:border-white/25 hover:bg-white/[0.06]',
+    'border border-black/10',
+    'hover:border-black/20 hover:bg-white/80',
   ].join(' '),
   ghost: [
     'text-text-secondary font-medium',

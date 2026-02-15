@@ -4,7 +4,6 @@ import Hero from './components/sections/Hero'
 
 const FeaturesGrid = lazy(() => import('./components/sections/FeaturesGrid'))
 const HowItWorks = lazy(() => import('./components/sections/HowItWorks'))
-const Pricing = lazy(() => import('./components/sections/Pricing'))
 const BetaAccessForm = lazy(() => import('./components/sections/BetaAccessForm'))
 const Footer = lazy(() => import('./components/sections/Footer'))
 
@@ -26,9 +25,6 @@ function App() {
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <HowItWorks />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <Pricing />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <BetaAccessForm />

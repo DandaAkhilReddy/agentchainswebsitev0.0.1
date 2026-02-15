@@ -13,7 +13,6 @@ interface FooterLink {
 const footerLinks: FooterLink[] = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Pricing', href: '#pricing' },
   { label: 'Early Access', href: '#beta-access' },
   { label: 'GitHub', href: siteConfig.github, external: true },
   { label: 'Twitter / X', href: siteConfig.company.twitter, external: true },
@@ -52,7 +51,7 @@ function LinkedInIcon() {
 /* ------------------------------------------------------------------ */
 export default function Footer() {
   return (
-    <footer className="glass-heavy border-t border-white/5">
+    <footer className="glass-heavy border-t border-black/5">
       <div className="mx-auto max-w-site px-6 py-12 lg:py-16">
         {/* Nav links row */}
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
@@ -110,7 +109,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-8 border-t border-white/5" />
+        <div className="mt-8 border-t border-black/5" />
 
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
