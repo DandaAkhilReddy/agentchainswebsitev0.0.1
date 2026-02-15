@@ -24,44 +24,45 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: '\u26A1',
-    title: 'Express Purchase',
-    description: 'One API call. Sub-100ms delivery. 3-tier CDN.',
-    accent: 'cyan',
-  },
-  {
-    icon: '\uD83E\uDDE0',
-    title: 'Smart Matching',
+    title: 'Instant Delivery',
     description:
-      '7 routing strategies: cheapest, fastest, best value, and more.',
-    accent: 'violet',
-  },
-  {
-    icon: '\uD83D\uDEE1\uFE0F',
-    title: 'ZKP Verification',
-    description:
-      'Zero-knowledge proofs ensure trust without revealing data.',
+      'One API call. Sub-100ms response. A 3-tier CDN ensures buyers get results fast, every time.',
     accent: 'cyan',
   },
   {
     icon: '\uD83D\uDCB5',
     title: 'Real USD Earnings',
     description:
-      'Not tokens. Real money. Withdraw anytime.',
+      'No tokens. No points. Publish a result, set your price, and withdraw real money anytime.',
     accent: 'coral',
+  },
+  {
+    icon: '\uD83D\uDEE1\uFE0F',
+    title: 'Verified Trust',
+    description:
+      'Zero-knowledge proofs verify data provenance without exposing the underlying source.',
+    accent: 'cyan',
+  },
+  {
+    icon: '\uD83E\uDDE0',
+    title: 'Smart Matching',
+    description:
+      'Seven routing strategies connect buyers to the best result: cheapest, fastest, highest-rated, and more.',
+    accent: 'violet',
   },
   {
     icon: '\uD83E\uDD16',
     title: 'Pre-Built Agents',
     description:
-      '5 agents ready to deploy: web search, code analysis, and more.',
+      'Start earning immediately with five ready-to-deploy agents for web search, code analysis, and summarization.',
     accent: 'violet',
   },
   {
-    icon: '\uD83D\uDD17',
-    title: 'OpenClaw Integration',
+    icon: '\uD83C\uDF10',
+    title: 'Two-Sided Marketplace',
     description:
-      'Connect agents visually \u2014 no code required. Configure, deploy, go live.',
-    accent: 'violet',
+      'Developers publish. Users consume. Think of it as an app store where AI agents are the apps.',
+    accent: 'coral',
   },
 ]
 
@@ -142,8 +143,8 @@ export default function FeaturesGrid() {
   return (
     <SectionWrapper id="features">
       <SectionHeading
-        title="Why Agents Waste Money"
-        subtitle="Every re-computed answer is money burned. AgentChains fixes that."
+        title="Built for Developers, Used by Everyone"
+        subtitle="Publish verified AI results. Set your price. Earn real USD when others use them."
         gradient
       />
 

@@ -18,25 +18,25 @@ const steps: Step[] = [
   {
     number: 1,
     title: 'Install',
-    description: 'pip install agentchains \u2014 that\u2019s it.',
+    description: 'One command to get started.',
     code: 'pip install agentchains',
   },
   {
     number: 2,
     title: 'Register',
-    description: 'Get your API key and $0.10 free credit.',
+    description: 'Create an account and get your API key with $0.10 free credit.',
     code: 'agent = AgentChains(email="you@example.com")',
   },
   {
     number: 3,
-    title: 'List',
-    description: 'Publish your agent\u2019s computed results.',
-    code: 'agent.list(title="...", content=result, price=0.005)',
+    title: 'Publish',
+    description: 'Your agent computes a result. List it on the marketplace at a price you set.',
+    code: 'agent.list(title="Web search: Python 3.13", content=result, price=0.005)',
   },
   {
     number: 4,
     title: 'Earn',
-    description: 'Buyers find you. You earn real USD.',
+    description: 'Buyers discover your results via the API. You earn real USD on every sale.',
     code: '# Earnings deposited automatically. 2% platform fee.',
   },
 ]

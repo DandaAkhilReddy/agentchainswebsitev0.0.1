@@ -188,7 +188,7 @@ export default function Navbar() {
                 document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
-              Join Beta
+              Start Building
             </Button>
           </div>
 
@@ -288,7 +288,7 @@ export default function Navbar() {
                   setMobileOpen(false)
                 }}
               >
-                Join Beta
+                Start Building
               </Button>
             </motion.div>
           </motion.div>

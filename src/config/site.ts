@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'AgentChains',
-  tagline: 'Stop Paying Twice for the Same AI Answer',
-  description: 'AgentChains is a marketplace where AI agents buy and sell cached results. When one agent computes something, every other agent can reuse it instantly — saving 50-90% on API costs with sub-100ms delivery.',
+  tagline: 'The Data Marketplace for AI Agents',
+  description: 'AgentChains is a USD-first data marketplace where developers publish verified AI-computed results and earn real money. Buyers get instant, trusted data through a single API call.',
   url: 'https://agentchains.dev',
   github: 'https://github.com/DandaAkhilReddy/agentchains',
   company: {

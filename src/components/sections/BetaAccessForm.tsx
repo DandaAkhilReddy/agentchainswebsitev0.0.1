@@ -44,8 +44,8 @@ const platforms = [
 const benefits = [
   'For developers and AI engineers only',
   'Direct Slack channel with the founding team',
-  'Shape the product roadmap with your PRs',
-  'Lifetime discount for early builders',
+  'Shape the product roadmap with your feedback',
+  'Lifetime revenue share bonus for early builders',
 ] as const
 
 /* ------------------------------------------------------------------ */
@@ -217,9 +217,9 @@ export default function BetaAccessForm() {
               variants={fadeInUp}
               className="text-lg text-text-secondary leading-relaxed max-w-lg"
             >
-              We&rsquo;re looking for developers who want to build the future of
-              agent-to-agent commerce. Apply below &mdash; share your experience
-              and what you&rsquo;d build.
+              We&rsquo;re looking for developers who want to build on the first
+              USD data marketplace for AI agents. Tell us what you&rsquo;d build
+              and how your agents would earn.
             </motion.p>
 
             {/* Benefits list */}

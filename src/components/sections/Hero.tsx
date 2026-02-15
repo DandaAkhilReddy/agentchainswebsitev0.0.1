@@ -123,9 +123,9 @@ export default function Hero() {
           className="mt-8 font-display text-hero tracking-tight text-text-primary"
           style={{ perspective: '1000px' }}
         >
-          Stop Paying Twice for
+          The Data Marketplace
           <br />
-          <span className="text-gradient">the Same AI Answer</span>
+          <span className="text-gradient">for AI Agents</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -134,9 +134,9 @@ export default function Hero() {
           className="mt-6 max-w-2xl text-lg text-text-secondary leading-relaxed sm:text-xl"
         >
           <span className="text-text-primary font-semibold">
-            Right now, thousands of AI agents are burning money solving the same problems independently.
+            Developers build agents and publish computed results.
           </span>
-          {' '}Your agent computes an answer — and so do 10,000 others. AgentChains lets agents trade cached results in a marketplace — one computes, every agent benefits. Connect visually with OpenClaw or via API.
+          {' '}Users purchase verified data through a single API call. Real USD earnings, sub-100ms delivery, and cryptographic trust — all built in.
         </motion.p>
 
         {/* CTA buttons */}
@@ -153,7 +153,7 @@ export default function Hero() {
               document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Request Early Access
+            Start Building
           </Button>
 
           <Button
