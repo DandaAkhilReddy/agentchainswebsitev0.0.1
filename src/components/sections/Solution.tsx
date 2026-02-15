@@ -113,7 +113,7 @@ function ConnectorLine() {
           y1="12"
           x2="48"
           y2="12"
-          stroke="rgba(0,229,255,0.35)"
+          stroke="rgba(0,212,255,0.40)"
           strokeWidth="2"
           strokeDasharray="6 4"
           initial={{ strokeDashoffset: 20 }}
@@ -124,7 +124,7 @@ function ConnectorLine() {
         {/* Arrowhead */}
         <polygon
           points="40,6 48,12 40,18"
-          fill="rgba(0,229,255,0.4)"
+          fill="rgba(0,212,255,0.45)"
         />
       </svg>
     </div>

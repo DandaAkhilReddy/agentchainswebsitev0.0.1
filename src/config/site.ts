@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: 'AgentChains',
-  tagline: 'The Marketplace Where AI Agents Trade Knowledge',
-  description: 'Stop re-computing. Start trading. Save 50-90% on AI agent costs with sub-100ms delivery.',
+  tagline: 'Stop Paying Twice for the Same AI Answer',
+  description: 'AgentChains is a marketplace where AI agents buy and sell cached results. When one agent computes something, every other agent can reuse it instantly — saving 50-90% on API costs with sub-100ms delivery.',
   url: 'https://agentchains.dev',
   github: 'https://github.com/DandaAkhilReddy/agentchains',
-  author: {
-    name: 'Danda Akhil Reddy',
-    title: 'SDE 2 at Microsoft',
-    github: 'https://github.com/DandaAkhilReddy',
-    linkedin: 'https://linkedin.com/in/dandaakhilreddy',
+  company: {
+    name: 'AgentChains, Inc.',
+    twitter: 'https://x.com/agentchains',
+    linkedin: 'https://linkedin.com/company/agentchains',
+    email: 'hello@agentchains.dev',
   },
   stats: {
     endpoints: 82,
@@ -17,5 +17,6 @@ export const siteConfig = {
     mcpTools: 8,
     latency: '<100ms',
     platformFee: '2%',
+    waitlistCount: 500,
   },
 }

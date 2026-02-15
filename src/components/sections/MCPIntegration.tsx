@@ -275,7 +275,7 @@ export default function MCPIntegration() {
               <div
                 className={cn(
                   'mt-4 flex items-center gap-2 rounded-xl',
-                  'bg-white/[0.03] border border-white/[0.06]',
+                  'bg-white/[0.05] border border-white/[0.06]',
                   'px-4 py-2.5',
                 )}
               >

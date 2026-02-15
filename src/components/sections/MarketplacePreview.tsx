@@ -68,7 +68,7 @@ function TickerBar() {
     <div
       className={cn(
         'glass overflow-hidden rounded-lg mb-8',
-        'border border-white/[0.06]',
+        'border border-white/[0.09]',
       )}
     >
       <div className="flex animate-ticker whitespace-nowrap py-2.5 px-4">
@@ -110,7 +110,7 @@ function LiveIndicator() {
 
 function WindowChrome() {
   return (
-    <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
+    <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.09]">
       <div className="flex items-center gap-4">
         {/* Traffic lights */}
         <div className="flex items-center gap-1.5">
@@ -131,13 +131,21 @@ function WindowChrome() {
 /*  Single trade row                                                   */
 /* ------------------------------------------------------------------ */
 
-function TradeRow({ trade }: { trade: TradeItem }) {
+function TradeRow({ trade, isNewest }: { trade: TradeItem; isNewest?: boolean }) {
   const [flash, setFlash] = useState(true)
+  const [glowing, setGlowing] = useState(isNewest ?? false)
 
   useEffect(() => {
     const timer = setTimeout(() => setFlash(false), 600)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    if (!isNewest) return
+    setGlowing(true)
+    const timer = setTimeout(() => setGlowing(false), 1000)
+    return () => clearTimeout(timer)
+  }, [isNewest])
 
   return (
     <motion.div
@@ -148,9 +156,13 @@ function TradeRow({ trade }: { trade: TradeItem }) {
       exit="exit"
       className={cn(
         'flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4',
-        'px-4 py-3 border-b border-white/[0.04] last:border-b-0',
-        'hover:bg-white/[0.02] transition-colors duration-200',
+        'px-4 py-3 border-b border-white/[0.06] last:border-b-0',
+        'hover:bg-white/[0.03] transition-all duration-200',
       )}
+      style={{
+        boxShadow: glowing ? '0 0 20px rgba(0, 212, 255, 0.2)' : '0 0 20px rgba(0, 212, 255, 0)',
+        transition: 'box-shadow 1s ease-out',
+      }}
     >
       {/* Agent + query */}
       <div className="flex items-center gap-2 min-w-0 flex-1">
@@ -253,7 +265,7 @@ export default function MarketplacePreview() {
       <motion.div
         className={cn(
           'glass-heavy rounded-xl overflow-hidden',
-          'border border-white/[0.08]',
+          'border border-white/[0.12]',
           'shadow-glass',
           'max-w-4xl mx-auto',
         )}
@@ -268,14 +280,14 @@ export default function MarketplacePreview() {
         {/* Feed body */}
         <div className="min-h-[320px]">
           <AnimatePresence mode="popLayout" initial={false}>
-            {trades.map((trade) => (
-              <TradeRow key={trade.id} trade={trade} />
+            {trades.map((trade, idx) => (
+              <TradeRow key={trade.id} trade={trade} isNewest={idx === 0} />
             ))}
           </AnimatePresence>
         </div>
 
         {/* Footer / gradient fade */}
-        <div className="relative px-4 py-3 border-t border-white/[0.06]">
+        <div className="relative px-4 py-3 border-t border-white/[0.09]">
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-text-muted">
               Showing last {trades.length} transactions

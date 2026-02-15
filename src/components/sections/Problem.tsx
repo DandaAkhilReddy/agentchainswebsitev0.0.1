@@ -49,7 +49,7 @@ function WasteVisualization() {
           cx="200"
           cy="200"
           r="160"
-          stroke="rgba(255,51,102,0.06)"
+          stroke="rgba(255,64,128,0.08)"
           strokeWidth="1"
         />
 
@@ -58,8 +58,8 @@ function WasteVisualization() {
           cx="100"
           cy="120"
           r="36"
-          fill="rgba(255,51,102,0.08)"
-          stroke="rgba(255,51,102,0.4)"
+          fill="rgba(255,64,128,0.10)"
+          stroke="rgba(255,64,128,0.45)"
           strokeWidth="1.5"
           animate={{ scale: [1, 1.08, 1], opacity: [0.8, 1, 0.8] }}
           transition={pulseTransition}
@@ -89,8 +89,8 @@ function WasteVisualization() {
           cx="100"
           cy="280"
           r="36"
-          fill="rgba(255,51,102,0.08)"
-          stroke="rgba(255,51,102,0.4)"
+          fill="rgba(255,64,128,0.10)"
+          stroke="rgba(255,64,128,0.45)"
           strokeWidth="1.5"
           animate={{ scale: [1, 1.08, 1], opacity: [0.8, 1, 0.8] }}
           transition={{ ...pulseTransition, delay: 0.6 }}
@@ -122,10 +122,10 @@ function WasteVisualization() {
           width="72"
           height="56"
           rx="12"
-          fill="rgba(255,51,102,0.06)"
-          stroke="rgba(255,51,102,0.5)"
+          fill="rgba(255,64,128,0.08)"
+          stroke="rgba(255,64,128,0.55)"
           strokeWidth="1.5"
-          animate={{ boxShadow: ['0 0 0px rgba(255,51,102,0)', '0 0 24px rgba(255,51,102,0.3)', '0 0 0px rgba(255,51,102,0)'] }}
+          animate={{ boxShadow: ['0 0 0px rgba(255,64,128,0)', '0 0 24px rgba(255,64,128,0.35)', '0 0 0px rgba(255,64,128,0)'] }}
           transition={pulseTransition}
         />
         <text
@@ -145,7 +145,7 @@ function WasteVisualization() {
           y1="120"
           x2="264"
           y2="186"
-          stroke="rgba(255,51,102,0.5)"
+          stroke="rgba(255,64,128,0.55)"
           strokeWidth="1.5"
           strokeDasharray="6 4"
           animate={{ strokeDashoffset: [0, -20] }}
@@ -154,7 +154,7 @@ function WasteVisualization() {
         {/* arrowhead A */}
         <motion.polygon
           points="258,182 268,188 260,192"
-          fill="rgba(255,51,102,0.6)"
+          fill="rgba(255,64,128,0.65)"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={pulseTransition}
         />
@@ -165,7 +165,7 @@ function WasteVisualization() {
           y1="280"
           x2="264"
           y2="214"
-          stroke="rgba(255,51,102,0.5)"
+          stroke="rgba(255,64,128,0.55)"
           strokeWidth="1.5"
           strokeDasharray="6 4"
           animate={{ strokeDashoffset: [0, -20] }}
@@ -174,7 +174,7 @@ function WasteVisualization() {
         {/* arrowhead B */}
         <motion.polygon
           points="258,218 268,212 260,208"
-          fill="rgba(255,51,102,0.6)"
+          fill="rgba(255,64,128,0.65)"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ ...pulseTransition, delay: 0.4 }}
         />
@@ -190,8 +190,8 @@ function WasteVisualization() {
             width="80"
             height="28"
             rx="14"
-            fill="rgba(255,51,102,0.12)"
-            stroke="rgba(255,51,102,0.3)"
+            fill="rgba(255,64,128,0.14)"
+            stroke="rgba(255,64,128,0.4)"
             strokeWidth="1"
           />
           <text

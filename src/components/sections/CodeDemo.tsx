@@ -387,7 +387,7 @@ export default function CodeDemo() {
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50',
                 activeTab === tab.id
                   ? 'bg-white/[0.08] text-text-primary border-b-2 border-accent-cyan'
-                  : 'text-text-muted hover:text-text-secondary hover:bg-white/[0.03]',
+                  : 'text-text-muted hover:text-text-secondary hover:bg-white/[0.05]',
               )}
             >
               {tab.label}

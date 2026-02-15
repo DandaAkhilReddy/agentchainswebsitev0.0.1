@@ -122,7 +122,7 @@ function TechBadge({ name }: { name: string }) {
       className={cn(
         'inline-flex items-center px-4 py-1.5 rounded-full',
         'glass text-xs font-mono tracking-wider text-text-secondary',
-        'border border-white/[0.06]',
+        'border border-white/[0.09]',
         'hover:border-accent-cyan/20 hover:text-text-primary',
         'transition-colors duration-300',
       )}
@@ -140,8 +140,8 @@ export default function SocialProof() {
   return (
     <SectionWrapper id="social-proof" className="bg-bg-secondary">
       <SectionHeading
-        title="Built for Production"
-        subtitle="Not a toy. Not a prototype. Production-grade infrastructure."
+        title="Growing Fast"
+        subtitle="Trusted by developers building the next generation of AI agents."
       />
 
       {/* Stats grid */}
@@ -170,10 +170,28 @@ export default function SocialProof() {
         ))}
       </motion.div>
 
-      {/* Attribution */}
-      <p className="mt-8 text-center text-sm text-text-muted">
-        Built by Danda Akhil Reddy &mdash; SDE 2 at Microsoft
-      </p>
+      {/* Credibility badges */}
+      <motion.div
+        className="mt-10 flex flex-wrap items-center justify-center gap-4"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-40px' }}
+      >
+        <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-accent-violet/15 text-sm text-text-secondary">
+          <svg className="h-4 w-4 text-accent-violet" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          </svg>
+          VC-Backed
+        </motion.span>
+        <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-accent-coral/15 text-sm text-text-secondary">
+          <span className="flex items-center justify-center h-5 w-5 rounded bg-accent-coral/20 text-accent-coral text-[10px] font-bold">YC</span>
+          Y Combinator Applicant
+        </motion.span>
+        <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-white/10 text-sm text-text-secondary">
+          MIT Licensed &middot; Open Source
+        </motion.span>
+      </motion.div>
     </SectionWrapper>
   )
 }

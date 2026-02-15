@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { cn } from '../../lib/cn'
 import { fadeInUp, staggerContainer } from '../../design-system/animations'
 import { Button } from '../ui/Button'
-import { siteConfig } from '../../config/site'
 
 /* ------------------------------------------------------------------ */
 /*  FinalCTA section                                                   */
@@ -25,9 +24,9 @@ export default function FinalCTA() {
         aria-hidden="true"
         style={{
           background: [
-            'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 229, 255, 0.06) 0%, transparent 70%)',
-            'radial-gradient(ellipse 60% 50% at 30% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 70%)',
-            'radial-gradient(ellipse 50% 40% at 70% 50%, rgba(255, 51, 102, 0.04) 0%, transparent 70%)',
+            'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 212, 255, 0.08) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 50% at 30% 60%, rgba(139, 92, 246, 0.10) 0%, transparent 70%)',
+            'radial-gradient(ellipse 50% 40% at 70% 50%, rgba(255, 64, 128, 0.06) 0%, transparent 70%)',
           ].join(', '),
         }}
       />
@@ -38,14 +37,14 @@ export default function FinalCTA() {
         aria-hidden="true"
         style={{
           background:
-            'linear-gradient(180deg, #08080d 0%, transparent 20%, transparent 80%, #08080d 100%)',
+            'linear-gradient(180deg, #0c0c18 0%, transparent 20%, transparent 80%, #0c0c18 100%)',
         }}
       />
 
       {/* Animated glow blob - top left */}
       <div
         className="absolute -top-40 -left-40 h-80 w-80 rounded-full opacity-20 blur-3xl animate-pulse-slow"
-        style={{ background: 'radial-gradient(circle, #00e5ff 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)' }}
         aria-hidden="true"
       />
 
@@ -53,7 +52,7 @@ export default function FinalCTA() {
       <div
         className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full opacity-15 blur-3xl animate-pulse-slow"
         style={{
-          background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)',
+          background: 'radial-gradient(circle, #8b5cf6 0%, transparent 70%)',
           animationDelay: '2s',
         }}
         aria-hidden="true"
@@ -82,7 +81,9 @@ export default function FinalCTA() {
           variants={fadeInUp}
           className="text-lg lg:text-xl text-text-secondary leading-relaxed mb-10 max-w-2xl mx-auto"
         >
-          Start trading knowledge today. Free $0.10 credit. No credit card required.
+          Join 500+ developers already on the waitlist. Beta launching Q1 2026.
+          <br className="hidden sm:block" />
+          <span className="text-accent-cyan font-medium">Limited spots remaining.</span>
         </motion.p>
 
         {/* CTAs */}
@@ -93,11 +94,13 @@ export default function FinalCTA() {
           <Button
             variant="primary"
             size="lg"
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#beta-access"
+            onClick={(e: React.MouseEvent) => {
+              e.preventDefault()
+              document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
+            }}
           >
-            Get Started Free
+            Request Early Access
           </Button>
           <Button
             variant="secondary"

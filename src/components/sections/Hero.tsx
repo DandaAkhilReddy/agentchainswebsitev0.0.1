@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { cn } from '../../lib/cn'
 import { siteConfig } from '../../config/site'
 import { Button } from '../ui/Button'
+import { heroTextReveal } from '../../design-system/animations'
 
 /* ------------------------------------------------------------------ */
 /*  Animation variants                                                */
@@ -34,10 +35,10 @@ const fadeIn = {
 /*  Stats configuration                                               */
 /* ------------------------------------------------------------------ */
 const stats = [
-  { value: `${siteConfig.stats.endpoints}`, label: 'API Endpoints' },
-  { value: `${siteConfig.stats.tests.toLocaleString()}+`, label: 'Tests' },
-  { value: siteConfig.stats.latency, label: 'Delivery' },
-  { value: `${siteConfig.stats.agents}`, label: 'AI Agents' },
+  { value: '500+', label: 'On the Waitlist' },
+  { value: 'Q1 2026', label: 'Beta Launch' },
+  { value: '<100ms', label: 'Delivery Latency' },
+  { value: '50-90%', label: 'Cost Savings' },
 ] as const
 
 /* ------------------------------------------------------------------ */
@@ -66,14 +67,14 @@ function GradientBlobs() {
       <div
         className={cn(
           'absolute -top-[20%] -left-[10%] h-[600px] w-[600px] rounded-full',
-          'bg-accent-cyan/[0.07] blur-[120px] animate-pulse-slow',
+          'bg-accent-cyan/[0.12] blur-[120px] animate-pulse-slow',
         )}
       />
       {/* Violet blob - bottom right */}
       <div
         className={cn(
           'absolute -bottom-[10%] -right-[10%] h-[500px] w-[500px] rounded-full',
-          'bg-accent-violet/[0.08] blur-[120px] animate-pulse-slow',
+          'bg-accent-violet/[0.14] blur-[120px] animate-pulse-slow',
         )}
         style={{ animationDelay: '2s' }}
       />
@@ -81,7 +82,7 @@ function GradientBlobs() {
       <div
         className={cn(
           'absolute bottom-[10%] left-[30%] h-[350px] w-[350px] rounded-full',
-          'bg-accent-coral/[0.05] blur-[100px] animate-pulse-slow',
+          'bg-accent-coral/[0.10] blur-[100px] animate-pulse-slow',
         )}
         style={{ animationDelay: '3.5s' }}
       />
@@ -135,7 +136,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-aurora bg-noise"
     >
       {/* ---------- Background layers ---------- */}
       <GradientBlobs />
@@ -173,18 +174,21 @@ export default function Hero() {
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-cyan animate-pulse" />
             MIT Licensed
             <span className="text-text-muted">&middot;</span>
-            Built by Microsoft SDE
+            Backed by VCs
+            <span className="text-text-muted">&middot;</span>
+            Applied to Y Combinator
           </span>
         </motion.div>
 
         {/* Main headline */}
         <motion.h1
-          variants={fadeUp}
+          variants={heroTextReveal}
           className="mt-8 font-display text-hero tracking-tight text-text-primary"
+          style={{ perspective: '1000px' }}
         >
-          The Stock Exchange for
+          Stop Paying Twice for
           <br />
-          <span className="text-gradient">AI Knowledge</span>
+          <span className="text-gradient">the Same AI Answer</span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -192,7 +196,10 @@ export default function Hero() {
           variants={fadeUp}
           className="mt-6 max-w-2xl text-lg text-text-secondary leading-relaxed sm:text-xl"
         >
-          {siteConfig.description}
+          <span className="text-text-primary font-semibold">
+            Your AI agents are re-computing answers that already exist.
+          </span>
+          {' '}AgentChains lets agents trade cached results in a marketplace — one agent computes, every agent benefits. Save 50-90% on API costs.
         </motion.p>
 
         {/* CTA buttons */}
@@ -203,11 +210,13 @@ export default function Hero() {
           <Button
             variant="primary"
             size="lg"
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#beta-access"
+            onClick={(e: React.MouseEvent) => {
+              e.preventDefault()
+              document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
+            }}
           >
-            Get Started Free
+            Request Early Access
           </Button>
 
           <Button
@@ -220,6 +229,27 @@ export default function Hero() {
           >
             View on GitHub
           </Button>
+        </motion.div>
+
+        {/* Trust badges row */}
+        <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {/* VC Badge */}
+          <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 glass text-xs font-mono tracking-wider text-text-secondary border border-accent-violet/20">
+            <svg className="h-4 w-4 text-accent-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+            Backed by Venture Capitalists
+          </span>
+          {/* YC Badge */}
+          <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 glass text-xs font-mono tracking-wider text-text-secondary border border-accent-coral/20">
+            <span className="flex items-center justify-center h-5 w-5 rounded bg-accent-coral/20 text-accent-coral text-[10px] font-bold">YC</span>
+            Applied to Y Combinator
+          </span>
+          {/* Waitlist Badge */}
+          <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 glass text-xs font-mono tracking-wider text-text-secondary border border-accent-cyan/20">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-cyan animate-pulse" />
+            500+ on the waitlist
+          </span>
         </motion.div>
 
         {/* Stats bar */}

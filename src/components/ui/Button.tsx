@@ -37,6 +37,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'shadow-glow-cyan',
     'hover:shadow-glow-cyan-strong',
     'active:opacity-90',
+    'shimmer',
   ].join(' '),
   secondary: [
     'glass text-text-primary font-medium',

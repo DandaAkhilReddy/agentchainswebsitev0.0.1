@@ -41,16 +41,16 @@ const columns: FooterColumn[] = [
       { label: 'About', href: '#' },
       { label: 'Blog', href: '#', comingSoon: true },
       { label: 'Careers', href: '#', comingSoon: true },
-      { label: 'Contact', href: `mailto:akhil@agentchains.dev` },
+      { label: 'Contact', href: `mailto:${siteConfig.company.email}` },
     ],
   },
   {
     title: 'Connect',
     links: [
-      { label: 'GitHub', href: siteConfig.author.github, external: true },
-      { label: 'Twitter / X', href: 'https://x.com/dandaakhilreddy', external: true },
-      { label: 'LinkedIn', href: siteConfig.author.linkedin, external: true },
-      { label: 'Email', href: `mailto:akhil@agentchains.dev` },
+      { label: 'GitHub', href: siteConfig.github, external: true },
+      { label: 'Twitter / X', href: siteConfig.company.twitter, external: true },
+      { label: 'LinkedIn', href: siteConfig.company.linkedin, external: true },
+      { label: 'Email', href: `mailto:${siteConfig.company.email}` },
     ],
   },
 ]
@@ -142,13 +142,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-text-muted">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. MIT Licensed.
+            &copy; {new Date().getFullYear()} AgentChains. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
             {/* Social icons */}
             <a
-              href={siteConfig.author.github}
+              href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -157,7 +157,7 @@ export default function Footer() {
               <GitHubIcon />
             </a>
             <a
-              href="https://x.com/dandaakhilreddy"
+              href={siteConfig.company.twitter}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
@@ -166,7 +166,7 @@ export default function Footer() {
               <TwitterIcon />
             </a>
             <a
-              href={siteConfig.author.linkedin}
+              href={siteConfig.company.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -174,20 +174,6 @@ export default function Footer() {
             >
               <LinkedInIcon />
             </a>
-
-            <span className="text-text-muted/30 select-none">|</span>
-
-            <p className="text-sm text-text-muted">
-              Built with care by{' '}
-              <a
-                href={siteConfig.author.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-secondary hover:text-text-primary transition-colors duration-200"
-              >
-                {siteConfig.author.name}
-              </a>
-            </p>
           </div>
         </div>
       </div>

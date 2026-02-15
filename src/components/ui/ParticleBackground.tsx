@@ -16,25 +16,56 @@ interface Particle {
   color: string
 }
 
-const COLORS = [
-  'rgba(255, 255, 255,',        // white (most common)
-  'rgba(255, 255, 255,',        // white
-  'rgba(255, 255, 255,',        // white
-  'rgba(0, 229, 255,',          // cyan tint
-  'rgba(124, 58, 237,',         // violet tint
+const PARTICLE_COLORS = [
+  'rgba(238, 238, 245,',   // white
+  'rgba(238, 238, 245,',   // white (weighted)
+  'rgba(0, 212, 255,',     // cyan
+  'rgba(0, 212, 255,',     // cyan (weighted)
+  'rgba(139, 92, 246,',    // violet
+  'rgba(255, 64, 128,',    // coral (rare)
 ]
 
 function createParticle(width: number, height: number): Particle {
-  const color = COLORS[Math.floor(Math.random() * COLORS.length)]
+  const color = PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)]
+  const isHero = Math.random() < 0.1 // 10% chance of "hero" particle
   return {
     x: Math.random() * width,
     y: Math.random() * height,
     vx: (Math.random() - 0.5) * 0.4,
     vy: (Math.random() - 0.5) * 0.4,
-    radius: Math.random() * 1.5 + 0.5,
-    opacity: Math.random() * 0.2 + 0.1,
+    radius: isHero ? Math.random() * 2 + 2 : Math.random() * 1.5 + 0.5,
+    opacity: Math.random() * 0.35 + 0.1,
     color,
   }
+}
+
+function drawAurora(ctx: CanvasRenderingContext2D, w: number, h: number, time: number) {
+  // Cyan blob - drifts slowly
+  const x1 = w * 0.3 + Math.sin(time * 0.0003) * w * 0.15
+  const y1 = h * 0.4 + Math.cos(time * 0.0002) * h * 0.15
+  const g1 = ctx.createRadialGradient(x1, y1, 0, x1, y1, w * 0.45)
+  g1.addColorStop(0, 'rgba(0, 212, 255, 0.06)')
+  g1.addColorStop(1, 'rgba(0, 212, 255, 0)')
+  ctx.fillStyle = g1
+  ctx.fillRect(0, 0, w, h)
+
+  // Violet blob - drifts slowly
+  const x2 = w * 0.7 + Math.cos(time * 0.00025) * w * 0.15
+  const y2 = h * 0.6 + Math.sin(time * 0.00035) * h * 0.15
+  const g2 = ctx.createRadialGradient(x2, y2, 0, x2, y2, w * 0.4)
+  g2.addColorStop(0, 'rgba(139, 92, 246, 0.05)')
+  g2.addColorStop(1, 'rgba(139, 92, 246, 0)')
+  ctx.fillStyle = g2
+  ctx.fillRect(0, 0, w, h)
+
+  // Coral blob - slower drift
+  const x3 = w * 0.5 + Math.sin(time * 0.0002) * w * 0.1
+  const y3 = h * 0.3 + Math.cos(time * 0.00015) * h * 0.1
+  const g3 = ctx.createRadialGradient(x3, y3, 0, x3, y3, w * 0.3)
+  g3.addColorStop(0, 'rgba(255, 64, 128, 0.03)')
+  g3.addColorStop(1, 'rgba(255, 64, 128, 0)')
+  ctx.fillStyle = g3
+  ctx.fillRect(0, 0, w, h)
 }
 
 export function ParticleBackground({ className }: ParticleBackgroundProps) {
@@ -45,7 +76,7 @@ export function ParticleBackground({ className }: ParticleBackgroundProps) {
 
   const initParticles = useCallback((width: number, height: number) => {
     const isMobile = width < 768
-    const count = isMobile ? 25 : 60
+    const count = isMobile ? 35 : 80
     particlesRef.current = Array.from({ length: count }, () =>
       createParticle(width, height)
     )
@@ -95,6 +126,9 @@ export function ParticleBackground({ className }: ParticleBackgroundProps) {
       const height = canvas.clientHeight
       ctx.clearRect(0, 0, width, height)
 
+      // Draw aurora blob layer first
+      drawAurora(ctx, canvas.width, canvas.height, performance.now())
+
       const particles = particlesRef.current
       const CONNECTION_DISTANCE = 150
       const CONNECTION_DISTANCE_SQ = CONNECTION_DISTANCE * CONNECTION_DISTANCE
@@ -125,11 +159,14 @@ export function ParticleBackground({ className }: ParticleBackgroundProps) {
 
           if (distSq < CONNECTION_DISTANCE_SQ) {
             const dist = Math.sqrt(distSq)
-            const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.06
+            const connectionOpacity = (1 - dist / CONNECTION_DISTANCE) * 0.12
+            const lineColor = Math.random() > 0.7
+              ? `rgba(0, 212, 255, ${connectionOpacity})`
+              : `rgba(255, 255, 255, ${connectionOpacity})`
             ctx.beginPath()
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`
+            ctx.strokeStyle = lineColor
             ctx.lineWidth = 0.5
             ctx.stroke()
           }

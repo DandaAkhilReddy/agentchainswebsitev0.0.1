@@ -206,7 +206,7 @@ function FlowConnector() {
           y1="12"
           x2="52"
           y2="12"
-          stroke="rgba(0,229,255,0.3)"
+          stroke="rgba(0,212,255,0.3)"
           strokeWidth="1.5"
           strokeDasharray="6 4"
           initial={{ strokeDashoffset: 24 }}
@@ -216,7 +216,7 @@ function FlowConnector() {
         />
         <polygon
           points="48,7 58,12 48,17"
-          fill="rgba(0,229,255,0.35)"
+          fill="rgba(0,212,255,0.35)"
         />
       </svg>
     </div>
@@ -237,7 +237,7 @@ function FlowConnectorVertical() {
           y1="0"
           x2="12"
           y2="30"
-          stroke="rgba(0,229,255,0.3)"
+          stroke="rgba(0,212,255,0.3)"
           strokeWidth="1.5"
           strokeDasharray="6 4"
           initial={{ strokeDashoffset: 24 }}
@@ -247,7 +247,7 @@ function FlowConnectorVertical() {
         />
         <polygon
           points="7,26 12,36 17,26"
-          fill="rgba(0,229,255,0.35)"
+          fill="rgba(0,212,255,0.35)"
         />
       </svg>
     </div>

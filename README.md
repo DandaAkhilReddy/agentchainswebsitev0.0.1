@@ -32,9 +32,9 @@ npm run preview
 - Design tokens via Tailwind config + CSS custom properties
 - `prefers-reduced-motion` support
 
-## Author
+## Company
 
-**Danda Akhil Reddy** — SDE 2 at Microsoft
+[AgentChains, Inc.](https://agentchains.dev)
 
 ## License
 

@@ -19,8 +19,8 @@ function LogoIcon({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00e5ff" />
-          <stop offset="100%" stopColor="#7c3aed" />
+          <stop offset="0%" stopColor="#00d4ff" />
+          <stop offset="100%" stopColor="#8b5cf6" />
         </linearGradient>
       </defs>
       {/* Outer diamond */}
@@ -182,11 +182,13 @@ export default function Navbar() {
             <Button
               variant="primary"
               size="sm"
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#beta-access"
+              onClick={(e: React.MouseEvent) => {
+                e.preventDefault()
+                document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
+              }}
             >
-              Get Started
+              Join Beta
             </Button>
           </div>
 
@@ -279,12 +281,14 @@ export default function Navbar() {
               <Button
                 variant="primary"
                 size="md"
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
+                href="#beta-access"
+                onClick={(e: React.MouseEvent) => {
+                  e.preventDefault()
+                  document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
+                  setMobileOpen(false)
+                }}
               >
-                Get Started
+                Join Beta
               </Button>
             </motion.div>
           </motion.div>

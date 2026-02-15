@@ -15,6 +15,7 @@ const DeveloperExperience = lazy(() => import('./components/sections/DeveloperEx
 const SocialProof = lazy(() => import('./components/sections/SocialProof'))
 const Pricing = lazy(() => import('./components/sections/Pricing'))
 const FinalCTA = lazy(() => import('./components/sections/FinalCTA'))
+const BetaAccessForm = lazy(() => import('./components/sections/BetaAccessForm'))
 const Footer = lazy(() => import('./components/sections/Footer'))
 
 function SectionFallback() {
@@ -68,6 +69,9 @@ function App() {
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <FinalCTA />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <BetaAccessForm />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <Footer />

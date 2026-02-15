@@ -181,16 +181,16 @@ const mobileConnections: Connection[] = [
 
 const accentColors = {
   cyan: {
-    fill: 'rgba(0, 229, 255, 0.06)',
-    stroke: 'rgba(0, 229, 255, 0.5)',
-    text: '#00e5ff',
-    glow: 'drop-shadow(0 0 8px rgba(0,229,255,0.3))',
+    fill: 'rgba(0, 212, 255, 0.08)',
+    stroke: 'rgba(0, 212, 255, 0.6)',
+    text: '#00d4ff',
+    glow: 'drop-shadow(0 0 8px rgba(0,212,255,0.3))',
   },
   violet: {
-    fill: 'rgba(124, 58, 237, 0.08)',
-    stroke: 'rgba(124, 58, 237, 0.5)',
-    text: '#7c3aed',
-    glow: 'drop-shadow(0 0 8px rgba(124,58,237,0.3))',
+    fill: 'rgba(139, 92, 246, 0.08)',
+    stroke: 'rgba(139, 92, 246, 0.6)',
+    text: '#8b5cf6',
+    glow: 'drop-shadow(0 0 8px rgba(139,92,246,0.3))',
   },
 }
 
@@ -268,7 +268,7 @@ function AnimatedConnection({
     <motion.path
       d={d}
       fill="none"
-      stroke="rgba(0, 229, 255, 0.3)"
+      stroke="rgba(0, 212, 255, 0.3)"
       strokeWidth={1.5}
       strokeDasharray="6 4"
       initial={{ strokeDashoffset: 40, opacity: 0 }}
@@ -332,7 +332,7 @@ export default function Architecture() {
               <path
                 d="M 40 0 L 0 0 0 40"
                 fill="none"
-                stroke="rgba(255,255,255,0.03)"
+                stroke="rgba(255,255,255,0.05)"
                 strokeWidth={0.5}
               />
             </pattern>
@@ -357,15 +357,15 @@ export default function Architecture() {
               transition={{ duration: 0.4, delay: 1.6 }}
             >
               {/* Arrow: Clients -> Gateway */}
-              <polygon points="286,160 296,165 286,170" fill="rgba(0,229,255,0.4)" />
+              <polygon points="286,160 296,165 286,170" fill="rgba(0,212,255,0.4)" />
               {/* Arrow: Gateway -> Router */}
-              <polygon points="526,160 536,165 526,170" fill="rgba(0,229,255,0.4)" />
+              <polygon points="526,160 536,165 526,170" fill="rgba(0,212,255,0.4)" />
               {/* Arrow: Router -> CDN */}
-              <polygon points="756,65 766,70 756,75" fill="rgba(0,229,255,0.4)" />
+              <polygon points="756,65 766,70 756,75" fill="rgba(0,212,255,0.4)" />
               {/* Arrow: Router -> DB */}
-              <polygon points="756,165 766,170 756,175" fill="rgba(0,229,255,0.4)" />
+              <polygon points="756,165 766,170 756,175" fill="rgba(0,212,255,0.4)" />
               {/* Arrow: Router -> ZKP */}
-              <polygon points="756,265 766,270 756,275" fill="rgba(0,229,255,0.4)" />
+              <polygon points="756,265 766,270 756,275" fill="rgba(0,212,255,0.4)" />
             </motion.g>
           )}
 
@@ -402,7 +402,7 @@ export default function Architecture() {
               <path
                 d="M 30 0 L 0 0 0 30"
                 fill="none"
-                stroke="rgba(255,255,255,0.03)"
+                stroke="rgba(255,255,255,0.05)"
                 strokeWidth={0.5}
               />
             </pattern>

@@ -91,7 +91,7 @@ function CodeSnippet({ code }: { code: string }) {
     <div
       className={cn(
         'mt-3 rounded-lg bg-bg-elevated px-4 py-3',
-        'border border-white/[0.06]',
+        'border border-white/[0.09]',
         'overflow-x-auto',
       )}
     >
@@ -152,7 +152,7 @@ export default function HowItWorks() {
         <div
           className={cn(
             'absolute left-0 top-0 bottom-0 w-px',
-            'bg-gradient-to-b from-accent-cyan/40 via-accent-violet/30 to-accent-cyan/10',
+            'bg-gradient-to-b from-accent-cyan/50 via-accent-violet/40 to-accent-cyan/15',
           )}
           aria-hidden="true"
         />
