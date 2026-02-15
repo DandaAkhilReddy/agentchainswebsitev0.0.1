@@ -32,16 +32,6 @@ const fadeIn = {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Stats configuration                                               */
-/* ------------------------------------------------------------------ */
-const stats = [
-  { value: '500+', label: 'On the Waitlist' },
-  { value: 'Q1 2026', label: 'Beta Launch' },
-  { value: '<100ms', label: 'Delivery Latency' },
-  { value: '50-90%', label: 'Cost Savings' },
-] as const
-
-/* ------------------------------------------------------------------ */
 /*  GitHub icon SVG                                                   */
 /* ------------------------------------------------------------------ */
 function GitHubIcon({ className }: { className?: string }) {
@@ -63,14 +53,12 @@ function GitHubIcon({ className }: { className?: string }) {
 function GradientBlobs() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      {/* Cyan blob - top left */}
       <div
         className={cn(
           'absolute -top-[20%] -left-[10%] h-[600px] w-[600px] rounded-full',
           'bg-accent-cyan/[0.12] blur-[120px] animate-pulse-slow',
         )}
       />
-      {/* Violet blob - bottom right */}
       <div
         className={cn(
           'absolute -bottom-[10%] -right-[10%] h-[500px] w-[500px] rounded-full',
@@ -78,7 +66,6 @@ function GradientBlobs() {
         )}
         style={{ animationDelay: '2s' }}
       />
-      {/* Coral blob - center bottom */}
       <div
         className={cn(
           'absolute bottom-[10%] left-[30%] h-[350px] w-[350px] rounded-full',
@@ -91,45 +78,6 @@ function GradientBlobs() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Scroll indicator (bouncing arrow)                                 */
-/* ------------------------------------------------------------------ */
-function ScrollIndicator() {
-  return (
-    <motion.div
-      variants={fadeIn}
-      className="absolute bottom-8 left-1/2 -translate-x-1/2"
-    >
-      <a
-        href="#features"
-        onClick={(e) => {
-          e.preventDefault()
-          document.querySelector('#features')?.scrollIntoView({ behavior: 'smooth' })
-        }}
-        className={cn(
-          'flex flex-col items-center gap-2 text-text-muted',
-          'transition-colors duration-300 hover:text-text-secondary',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded-lg p-2',
-        )}
-        aria-label="Scroll to features"
-      >
-        <span className="text-xs font-mono tracking-widest uppercase">Explore</span>
-        <svg
-          className="h-5 w-5 animate-bounce"
-          viewBox="0 0 20 20"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M10 4v12M5 11l5 5 5-5" />
-        </svg>
-      </a>
-    </motion.div>
-  )
-}
-
-/* ------------------------------------------------------------------ */
 /*  Hero section                                                      */
 /* ------------------------------------------------------------------ */
 export default function Hero() {
@@ -138,13 +86,9 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-aurora bg-noise"
     >
-      {/* ---------- Background layers ---------- */}
+      {/* Background layers */}
       <GradientBlobs />
-
-      {/* Radial mesh overlay */}
       <div className="absolute inset-0 bg-mesh" aria-hidden="true" />
-
-      {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -155,14 +99,14 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* ---------- Content ---------- */}
+      {/* Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 pt-24 pb-16 text-center sm:px-6 lg:px-8"
+        className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 pt-24 pb-24 text-center sm:px-6 lg:px-8"
       >
-        {/* Badge / Pill */}
+        {/* Badge */}
         <motion.div variants={fadeUp}>
           <span
             className={cn(
@@ -172,15 +116,13 @@ export default function Hero() {
             )}
           >
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-cyan animate-pulse" />
-            MIT Licensed
-            <span className="text-text-muted">&middot;</span>
             Backed by VCs
             <span className="text-text-muted">&middot;</span>
             Applied to Y Combinator
           </span>
         </motion.div>
 
-        {/* Main headline */}
+        {/* Headline */}
         <motion.h1
           variants={heroTextReveal}
           className="mt-8 font-display text-hero tracking-tight text-text-primary"
@@ -231,49 +173,36 @@ export default function Hero() {
           </Button>
         </motion.div>
 
-        {/* Trust badges row */}
-        <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {/* VC Badge */}
-          <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 glass text-xs font-mono tracking-wider text-text-secondary border border-accent-violet/20">
-            <svg className="h-4 w-4 text-accent-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        {/* Scroll indicator */}
+        <motion.div variants={fadeIn} className="mt-16">
+          <a
+            href="#features"
+            onClick={(e) => {
+              e.preventDefault()
+              document.querySelector('#features')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className={cn(
+              'flex flex-col items-center gap-2 text-text-muted',
+              'transition-colors duration-300 hover:text-text-secondary',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded-lg p-2',
+            )}
+            aria-label="Scroll to features"
+          >
+            <span className="text-xs font-mono tracking-widest uppercase">Explore</span>
+            <svg
+              className="h-5 w-5 animate-bounce"
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M10 4v12M5 11l5 5 5-5" />
             </svg>
-            Backed by Venture Capitalists
-          </span>
-          {/* YC Badge */}
-          <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 glass text-xs font-mono tracking-wider text-text-secondary border border-accent-coral/20">
-            <span className="flex items-center justify-center h-5 w-5 rounded bg-accent-coral/20 text-accent-coral text-[10px] font-bold">YC</span>
-            Applied to Y Combinator
-          </span>
-          {/* Waitlist Badge */}
-          <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 glass text-xs font-mono tracking-wider text-text-secondary border border-accent-cyan/20">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-cyan animate-pulse" />
-            500+ on the waitlist
-          </span>
-        </motion.div>
-
-        {/* Stats bar */}
-        <motion.div
-          variants={fadeUp}
-          className="mt-12 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:gap-x-4"
-        >
-          {stats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center gap-1.5">
-              {/* Separator dot (skip first) */}
-              {i > 0 && (
-                <span className="mr-1.5 inline-block h-1 w-1 rounded-full bg-text-muted/50 sm:mr-2" />
-              )}
-              <span className="font-mono text-sm font-semibold text-accent-cyan">
-                {stat.value}
-              </span>
-              <span className="text-sm text-text-muted">{stat.label}</span>
-            </div>
-          ))}
+          </a>
         </motion.div>
       </motion.div>
-
-      {/* ---------- Scroll indicator ---------- */}
-      <ScrollIndicator />
     </section>
   )
 }

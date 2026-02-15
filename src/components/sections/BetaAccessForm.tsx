@@ -496,20 +496,21 @@ export default function BetaAccessForm() {
                       </svg>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <h3 className="font-display text-h3 text-text-primary">
-                        Thank you, {formData.name.split(' ')[0]}!
+                        Welcome aboard, {formData.name.split(' ')[0]}!
                       </h3>
-                      <p className="text-text-secondary leading-relaxed max-w-xs mx-auto">
-                        Your request has been received. We&rsquo;ll reach out
-                        to you at{' '}
-                        <a
-                          href="mailto:info@agentchains.ai"
-                          className="text-accent-cyan font-medium hover:underline"
-                        >
+                      <p className="text-text-secondary leading-relaxed max-w-sm mx-auto">
+                        You&rsquo;re officially on the early access list.
+                        We&rsquo;re excited to have you.
+                      </p>
+                      <p className="text-sm text-text-muted leading-relaxed max-w-sm mx-auto">
+                        You&rsquo;ll receive a confirmation email from{' '}
+                        <span className="text-accent-cyan font-medium">
                           info@agentchains.ai
-                        </a>{' '}
-                        with next steps.
+                        </span>{' '}
+                        with your onboarding details and next steps.
+                        Check your inbox (and spam folder, just in case).
                       </p>
                     </div>
                   </motion.div>
