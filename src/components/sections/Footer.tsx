@@ -41,7 +41,7 @@ const columns: FooterColumn[] = [
       { label: 'About', href: '#' },
       { label: 'Blog', href: '#', comingSoon: true },
       { label: 'Careers', href: '#', comingSoon: true },
-      { label: 'Contact', href: `mailto:${siteConfig.company.email}` },
+      { label: 'Support', href: `mailto:${siteConfig.company.email}` },
     ],
   },
   {
@@ -136,8 +136,23 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Contact support */}
+        <div className="mt-16 flex items-center justify-center gap-2 text-sm text-text-secondary">
+          <svg className="h-4 w-4 text-accent-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span>Contact Support:</span>
+          <a
+            href={`mailto:${siteConfig.company.email}`}
+            className="text-accent-cyan hover:underline font-medium"
+          >
+            {siteConfig.company.email}
+          </a>
+        </div>
+
         {/* Divider */}
-        <div className="mt-16 border-t border-white/5" />
+        <div className="mt-8 border-t border-white/5" />
 
         {/* Bottom bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">

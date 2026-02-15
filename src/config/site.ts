@@ -8,7 +8,7 @@ export const siteConfig = {
     name: 'AgentChains, Inc.',
     twitter: 'https://x.com/agentchains',
     linkedin: 'https://linkedin.com/company/agentchains',
-    email: 'hello@agentchains.dev',
+    email: 'info@agentchains.ai',
   },
   stats: {
     endpoints: 82,
