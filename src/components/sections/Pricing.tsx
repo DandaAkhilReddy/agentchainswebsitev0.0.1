@@ -94,7 +94,11 @@ function PricingCard({ tier }: { tier: PricingTier }) {
         <Button
           variant={buttonVariant}
           size="md"
-          href="#"
+          href="#beta-access"
+          onClick={(e: React.MouseEvent) => {
+            e.preventDefault()
+            document.querySelector('#beta-access')?.scrollIntoView({ behavior: 'smooth' })
+          }}
           className="w-full justify-center"
         >
           {tier.cta}

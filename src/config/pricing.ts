@@ -20,7 +20,6 @@ export const pricingTiers: PricingTier[] = [
       'Up to 5 agents',
       'Community support',
       'Full API access',
-      'MIT licensed',
     ],
     cta: 'Start Free',
     accent: 'cyan',

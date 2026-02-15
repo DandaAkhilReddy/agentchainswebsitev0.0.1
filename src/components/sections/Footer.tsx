@@ -2,57 +2,22 @@ import { cn } from '../../lib/cn'
 import { siteConfig } from '../../config/site'
 
 /* ------------------------------------------------------------------ */
-/*  Footer link columns                                                */
+/*  Footer nav links — only real, working links                        */
 /* ------------------------------------------------------------------ */
 interface FooterLink {
   label: string
   href: string
   external?: boolean
-  comingSoon?: boolean
 }
 
-interface FooterColumn {
-  title: string
-  links: FooterLink[]
-}
-
-const columns: FooterColumn[] = [
-  {
-    title: 'Product',
-    links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Pricing', href: '#pricing' },
-      { label: 'Marketplace', href: '#' },
-      { label: 'Roadmap', href: '#' },
-    ],
-  },
-  {
-    title: 'Developers',
-    links: [
-      { label: 'Documentation', href: '#' },
-      { label: 'API Reference', href: '#' },
-      { label: 'GitHub', href: siteConfig.github, external: true },
-      { label: 'Contributing', href: `${siteConfig.github}/blob/main/CONTRIBUTING.md`, external: true },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About', href: '#' },
-      { label: 'Blog', href: '#', comingSoon: true },
-      { label: 'Careers', href: '#', comingSoon: true },
-      { label: 'Support', href: `mailto:${siteConfig.company.email}` },
-    ],
-  },
-  {
-    title: 'Connect',
-    links: [
-      { label: 'GitHub', href: siteConfig.github, external: true },
-      { label: 'Twitter / X', href: siteConfig.company.twitter, external: true },
-      { label: 'LinkedIn', href: siteConfig.company.linkedin, external: true },
-      { label: 'Email', href: `mailto:${siteConfig.company.email}` },
-    ],
-  },
+const footerLinks: FooterLink[] = [
+  { label: 'Features', href: '#features' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Early Access', href: '#beta-access' },
+  { label: 'GitHub', href: siteConfig.github, external: true },
+  { label: 'Twitter / X', href: siteConfig.company.twitter, external: true },
+  { label: 'LinkedIn', href: siteConfig.company.linkedin, external: true },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -88,51 +53,44 @@ function LinkedInIcon() {
 export default function Footer() {
   return (
     <footer className="glass-heavy border-t border-white/5">
-      <div className="mx-auto max-w-site px-6 py-16 lg:py-20">
-        {/* Column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          {columns.map((column) => (
-            <div key={column.title}>
-              <h4 className="font-display font-semibold text-text-primary mb-4">
-                {column.title}
-              </h4>
-              <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      {...(link.external
-                        ? { target: '_blank', rel: 'noopener noreferrer' }
-                        : {})}
-                      className={cn(
-                        'text-sm text-text-muted transition-colors duration-200',
-                        'hover:text-text-primary',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded',
-                        'inline-flex items-center gap-1.5',
-                      )}
-                    >
-                      {link.label}
-                      {link.comingSoon && (
-                        <span className="text-[10px] font-medium text-accent-violet/70 bg-accent-violet/10 px-1.5 py-0.5 rounded-full">
-                          Soon
-                        </span>
-                      )}
-                      {link.external && (
-                        <svg
-                          className="h-3 w-3 opacity-40"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        >
-                          <path d="M3.5 1.5h7v7M10.5 1.5L1.5 10.5" />
-                        </svg>
-                      )}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <div className="mx-auto max-w-site px-6 py-12 lg:py-16">
+        {/* Nav links row */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+          {footerLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              {...(link.external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
+              onClick={
+                !link.external
+                  ? (e: React.MouseEvent<HTMLAnchorElement>) => {
+                      e.preventDefault()
+                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  : undefined
+              }
+              className={cn(
+                'text-sm text-text-muted transition-colors duration-200',
+                'hover:text-text-primary',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded',
+                'inline-flex items-center gap-1.5',
+              )}
+            >
+              {link.label}
+              {link.external && (
+                <svg
+                  className="h-3 w-3 opacity-40"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path d="M3.5 1.5h7v7M10.5 1.5L1.5 10.5" />
+                </svg>
+              )}
+            </a>
           ))}
         </div>
 

@@ -57,11 +57,11 @@ const features: Feature[] = [
     accent: 'violet',
   },
   {
-    icon: '\uD83D\uDD0C',
-    title: 'MCP for Claude',
+    icon: '\uD83D\uDD17',
+    title: 'OpenClaw Integration',
     description:
-      '8 tools for Claude Desktop. Search, buy, sell \u2014 natively.',
-    accent: 'cyan',
+      'Connect agents visually \u2014 no code required. Configure, deploy, go live.',
+    accent: 'violet',
   },
 ]
 

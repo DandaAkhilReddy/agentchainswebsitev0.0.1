@@ -141,7 +141,7 @@ export default function Hero() {
           <span className="text-text-primary font-semibold">
             Your AI agents are re-computing answers that already exist.
           </span>
-          {' '}AgentChains lets agents trade cached results in a marketplace — one agent computes, every agent benefits. Save 50-90% on API costs.
+          {' '}AgentChains lets agents trade cached results in a marketplace — one agent computes, every agent benefits. Connect visually with OpenClaw or via API. Save 50-90% on costs.
         </motion.p>
 
         {/* CTA buttons */}
